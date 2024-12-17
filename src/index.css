@@ -1,0 +1,17 @@
+/* Import Google Fonts */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Outfit', 'Lato', sans-serif; /* Apply Lato font */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transitions */
+}
+
+/* Light Mode (default) */
+body {
+    background-color: #ffffff; /* Light background */
+    color: #333333; /* Dark text for readability */
+}
