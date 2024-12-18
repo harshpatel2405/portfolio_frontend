@@ -19,27 +19,26 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set the submitting flag to true
-
-    // Validate form fields
+    setIsSubmitting(true);
+  
     const { name, email, message } = formData;
     if (!name || !email || !message) {
       setStatus("All fields are required.");
       setIsSubmitting(false);
       return;
     }
-
+  
     try {
-      const response = await fetch("http://localhost:2024/api/contact", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
@@ -49,9 +48,10 @@ const ContactForm = () => {
     } catch (error) {
       setStatus("There was an error. Please try again later.");
     } finally {
-      setIsSubmitting(false); // Reset submitting state
+      setIsSubmitting(false);
     }
   };
+  
 
   return (
     <section id="contact" className="min-h-[80vh] bg-gray-50 flex items-center justify-center py-12">
