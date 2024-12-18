@@ -17,7 +17,7 @@ const Navbar = () => {
         {/* Logo (Image instead of Text) */}
         <div className="flex items-center space-x-3">
           <img
-            src="/IMG_20230612_161431 (2).jpg" // Replace with your image URL or path
+            src="/fotor-20241218162215.png" // Replace with your image URL or path
             alt="Profile Image"
             className="w-12 h-12 rounded-full object-cover shadow-md"
           />
@@ -75,7 +75,7 @@ const Navbar = () => {
             >
               <span
                 className={`block w-full h-0.5 bg-white transition-all duration-300 ${
-                  isMenuOpen ? "absolute top-0 rotate-40 transform" : "relative"
+                  isMenuOpen ? "absolute top-0 rotate-0 transform" : "relative"
                 }`}
               ></span>
               <span

@@ -11,9 +11,10 @@ const HeroSection = () => {
         {/* Right Side - Image */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <img
-            src="/IMG_20230612_161431 (2).jpg" // Replace with your image URL or path
+            src="/fotor-20241218162215.png" // Replace with your image URL or path
             alt="Your Name"
-            className="w-52 h-52 md:w-64 md:h-64 rounded-full object-cover border-4 border-gray-300 mb-6 md:mb-0 hover:scale-110 transition-all duration-300"
+            className="w-52 h-52 md:w-64 md:h-64 rounded-full object-cover border-4 border-gray-600 mb-6 md:mb-0 hover:scale-100 transition-all duration-300"
+
           />
         </div>
 
