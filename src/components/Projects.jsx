@@ -93,7 +93,7 @@ const Projects = () => {
 
               {/* Button for Live Preview */}
               <a
-                href="https://firesight-app.com" // Replace with your live app URL
+                href="https://firesight.vercel.com" // Replace with your live app URL
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600 transition duration-300"
