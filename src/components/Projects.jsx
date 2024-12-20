@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet"; // Import react-helmet for SEO
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,12 +11,32 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen bg-white flex items-center justify-center py-12">
+      {/* SEO with Helmet */}
+      <Helmet>
+        {/* <title>Harsh Patel - Projects</title> */}
+        <meta
+          name="description"
+          content="Explore the portfolio of Harsh Patel and his cutting-edge web development projects like FireSight, a platform for fire safety management."
+        />
+        <meta
+          name="keywords"
+          content="Harsh Patel, Web Developer, Portfolio, FireSight, React, Node.js, MongoDB"
+        />
+        <meta property="og:title" content="Harsh Patel - Projects" />
+        <meta
+          property="og:description"
+          content="Explore the portfolio of Harsh Patel and his cutting-edge web development projects like FireSight, a platform for fire safety management."
+        />
+        <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s" />
+        <meta property="og:url" content="your-website-url" />
+      </Helmet>
+
       <div className="container mx-auto text-center p-8">
         <h2 className="text-4xl font-bold mb-6 text-gray-800">Projects</h2>
 
         {/* General Purpose Sentence */}
         <p className="text-lg text-gray-600 mb-8">
-        Discover the cutting-edge projects that are transforming industries and driving innovation across various fields
+          Discover the cutting-edge projects that are transforming industries and driving innovation across various fields.
         </p>
 
         {/* FireSight Project Card */}
@@ -84,11 +105,11 @@ const Projects = () => {
 
               {/* Image in Modal with Restricted Size */}
               <div className="mb-4">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s"
-                alt="FireSight Project"
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s"
+                  alt="FireSight Project"
+                  className="w-full h-48 object-cover rounded-md mb-4"
+                />
               </div>
 
               {/* Button for Live Preview */}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -20,14 +21,14 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     const { name, email, message } = formData;
     if (!name || !email || !message) {
       setStatus("All fields are required.");
       setIsSubmitting(false);
       return;
     }
-  
+
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: "POST",
@@ -36,9 +37,9 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
@@ -51,10 +52,18 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <section id="contact" className="min-h-[80vh] bg-gray-50 flex items-center justify-center py-12">
+      <Helmet>
+        {/* <title>Contact Me | Harsh Patel</title> */}
+        <meta name="description" content="Get in touch with me to discuss your web development needs or ask any questions you might have." />
+        <meta name="keywords" content="contact, web development, reach out, message" />
+        <meta property="og:title" content="Contact Me | Your Name" />
+        <meta property="og:description" content="Get in touch with me to discuss your web development needs or ask any questions you might have." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="container mx-auto text-center p-8">
         <h2 className="text-4xl font-bold text-gray-900 mb-8">Contact Me</h2>
         <form className="space-y-6 max-w-lg mx-auto bg-white p-8 rounded-xl shadow-xl" onSubmit={handleSubmit}>
