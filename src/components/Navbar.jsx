@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa"; // Social icons
+// import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa"; // Social icons
 // import Head from "next/head"; // Import for SEO
 import { Helmet } from "react-helmet";
 

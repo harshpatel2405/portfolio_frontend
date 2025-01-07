@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./components/Navbar"; // Import Navbar component
-import HeroSection from "./components/HeroSection"; // Import HeroSection component
-import AboutMe from "./components/AboutMe"; // Import AboutMe component
-import Projects from "./components/Projects"; // Import Projects component
-import ContactForm from "./components/ContactForm"; // Import ContactForm component
-import Footer from "./components/Footer"; // Import Footer component
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import AboutMe from "./components/AboutMe";
+import Projects from "./components/Projects";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 
 const App = () => {
-  const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll events
   const handleScroll = () => {
-    if (window.scrollY > 200) { // If the page is scrolled more than 200px
-      setIsScrolled(true); // Show the "Go Up" button
+    if (window.scrollY > 200) {
+      setIsScrolled(true);
     } else {
-      setIsScrolled(false); // Hide the "Go Up" button
+      setIsScrolled(false);
     }
   };
 
-  // Set up scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Clean up the event listener on unmount
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -40,13 +37,13 @@ const App = () => {
       <HeroSection />
 
       {/* About Me Section */}
-      <AboutMe className="mb-12" />
+      <AboutMe className="mb-12 md:mb-16 lg:mb-20" />
 
       {/* Projects Section */}
-      <Projects className="mb-12" />
+      <Projects className="mb-12 md:mb-16 lg:mb-20" />
 
       {/* Contact Form Section */}
-      <ContactForm className="mb-12" />
+      <ContactForm className="mb-12 md:mb-16 lg:mb-20" />
 
       {/* Footer */}
       <Footer />
@@ -54,13 +51,12 @@ const App = () => {
       {/* Scroll to Top Button */}
       {isScrolled && (
         <button
-        onClick={scrollToTop}
-        className="fixed bottom-4 right-4 text-red-400 text-4xl p-4 w-160 h-160 hover:text-red-500 transition duration-300"
-        aria-label="Go to top"
-      >
-        <i className="bi bi-arrow-up-circle-fill"></i> {/* Larger red icon */}
-      </button>
-      
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 text-red-400 p-3 sm:p-4 md:p-5 lg:p-6 hover:text-red-500 transition duration-300 rounded-full shadow-md bg-white dark:bg-gray-800"
+          aria-label="Go to top"
+        >
+          <i className="bi bi-arrow-up-circle-fill text-3xl sm:text-4xl md:text-5xl"></i>
+        </button>
       )}
     </div>
   );
