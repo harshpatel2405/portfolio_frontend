@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 
 const AboutMe = () => {
   return (
@@ -9,7 +10,7 @@ const AboutMe = () => {
     >
       <Helmet>
         {/* SEO Title */}
-        {/* <title>About Me | Harsh Patel</title> */}
+        <title>About Me | Harsh Patel - MERN Stack Web Developer</title>
 
         {/* Meta Description */}
         <meta
@@ -24,6 +25,7 @@ const AboutMe = () => {
           content="I’m a proficient web developer specializing in the MERN stack—MongoDB, Express, React, Node.js. I focus on creating powerful, scalable, and high-performance web applications."
         />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/profile-image.jpg" /> {/* Change image URL */}
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:title" content="About Me | Web Developer Specializing in MERN Stack" />
@@ -36,48 +38,51 @@ const AboutMe = () => {
 
       <div className="container mx-auto px-6 text-center max-w-screen-xl">
         {/* Section Title */}
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-8">About Me</h2>
+        <motion.h2
+          className="text-4xl font-extrabold text-gray-800 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          About Me
+        </motion.h2>
 
         {/* Introduction */}
-        <div className="mb-12 max-w-3xl mx-auto">
+        <motion.div
+          className="mb-12 max-w-3xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <p className="text-lg md:text-xl text-gray-600">
             I’m a proficient web developer specializing in the MERN stack—combining MongoDB, Express, React, and Node.js to create powerful, scalable web applications. I focus on building robust back-end systems and seamless front-end experiences, ensuring high performance, security, and an intuitive user interface. My expertise allows me to deliver complete, end-to-end solutions that meet both technical and user experience needs.
           </p>
-        </div>
+        </motion.div>
 
         {/* Skills Section */}
-        <div className="mb-16">
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
           <h3 className="text-2xl font-semibold text-gray-800 mb-6">Skills & Technologies</h3>
           <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-1200px mx-auto text-lg">
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              React
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              JavaScript
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              Node.js
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              Express.js
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              MongoDB
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              Git
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              Tailwind CSS
-            </li>
-            <li className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105">
-              Figma
-            </li>
+            {["React", "JavaScript", "Node.js", "Express.js", "MongoDB", "Git", "Tailwind CSS", "Figma"].map((skill, index) => (
+              <motion.li
+                key={index}
+                className="bg-gray-200 p-4 rounded-lg text-center text-gray-700 shadow-md transition-all duration-300 ease-in-out transform hover:bg-gray-300 hover:scale-105"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+              >
+                {skill}
+              </motion.li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Education Section (Optional) */}
-        {/* You can add this if you'd like to include your education details */}
         {/* <div className="mb-16">
           <h3 className="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
           <p className="text-lg text-gray-600">

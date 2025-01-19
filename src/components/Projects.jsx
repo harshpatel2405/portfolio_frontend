@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet"; // Import react-helmet for SEO
+import { motion } from "framer-motion"; // For animations
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,11 +10,25 @@ const Projects = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  // Fade-in and pounce animation
+  const fadeInPounce = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    },
+    pounce: {
+      scale: [1, 1.2, 1],
+      transition: { repeat: 1, duration: 0.6 }
+    }
+  };
+
   return (
     <section id="projects" className="min-h-screen bg-white flex items-center justify-center py-12">
       {/* SEO with Helmet */}
       <Helmet>
-        {/* <title>Harsh Patel - Projects</title> */}
+        <title>Harsh Patel - Projects</title>
         <meta
           name="description"
           content="Explore the portfolio of Harsh Patel and his cutting-edge web development projects like FireSight, a platform for fire safety management."
@@ -27,47 +42,74 @@ const Projects = () => {
           property="og:description"
           content="Explore the portfolio of Harsh Patel and his cutting-edge web development projects like FireSight, a platform for fire safety management."
         />
-        <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s" />
+        <meta property="og:image" content="https://your-image-url.com" />
         <meta property="og:url" content="your-website-url" />
+        <meta name="twitter:title" content="Harsh Patel - Projects" />
+        <meta
+          name="twitter:description"
+          content="Explore the portfolio of Harsh Patel and his cutting-edge web development projects like FireSight."
+        />
+        <meta name="twitter:image" content="https://your-image-url.com" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       <div className="container mx-auto text-center p-8">
-        <h2 className="text-4xl font-bold mb-6 text-gray-800">Projects</h2>
+        <motion.h2
+          className="text-4xl font-bold mb-6 text-gray-800"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInPounce}
+        >
+          Projects
+        </motion.h2>
 
-        {/* General Purpose Sentence */}
-        <p className="text-lg text-gray-600 mb-8">
+        <motion.p
+          className="text-lg text-gray-600 mb-8"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInPounce}
+        >
           Discover the cutting-edge projects that are transforming industries and driving innovation across various fields.
-        </p>
+        </motion.p>
 
-        {/* FireSight Project Card */}
+        {/* FireSight Project Card with Animation */}
         <div className="flex justify-center items-center">
-          <div
+          <motion.div
             className="w-96 p-6 bg-white border-2 border-gray-300 rounded-lg shadow-xl cursor-pointer"
             onClick={toggleModal}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInPounce}
           >
             <div className="relative">
-              {/* Image Placeholder */}
+              {/* Lazy-loaded Image */}
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s"
                 alt="FireSight Project"
                 className="w-full h-48 object-cover rounded-md mb-4"
+                loading="lazy"
               />
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">FireSight</h3>
               <p className="text-gray-600 mb-4">Web Portal</p>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">View</button>
+              <button className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                View
+              </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Modal */}
+        {/* Modal with Animation */}
         {isModalOpen && (
           <div
             className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50"
             onClick={toggleModal}
           >
-            <div
+            <motion.div
               className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full relative"
               onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
             >
               {/* Modal Header with Close Button */}
               <div className="absolute top-2 right-2">
@@ -103,12 +145,13 @@ const Projects = () => {
                 challenges of fire extinguisher maintenance in businesses.
               </p>
 
-              {/* Image in Modal with Restricted Size */}
+              {/* Image in Modal */}
               <div className="mb-4">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStMTa6UaWvVQVRKXzCFn409lSvKslRwaeuUg&s"
                   alt="FireSight Project"
                   className="w-full h-48 object-cover rounded-md mb-4"
+                  loading="lazy"
                 />
               </div>
 
@@ -121,7 +164,7 @@ const Projects = () => {
               >
                 Live Preview
               </a>
-            </div>
+            </motion.div>
           </div>
         )}
       </div>
