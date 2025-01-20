@@ -5,7 +5,7 @@ import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import Preloader from "./Preloader"; // Import Preloader
+import Preloader from "./Preloader"; 
 
 // LazyLoadWrapper Component for Animations
 const LazyLoadWrapper = ({ children }) => {
