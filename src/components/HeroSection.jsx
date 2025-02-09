@@ -12,6 +12,7 @@ const HeroSection = () => {
           name="description"
           content="Harsh Patel is a skilled web developer specializing in modern, scalable, and user-friendly websites. Contact Harsh for web development services and projects."
         />
+        <meta name="google-site-verification" content="3_5ClwByX9jk1slTGVX0NpHCC79LPFlqdI6adgkc4UI" />
         <meta
           name="keywords"
           content="Harsh Patel, Web Developer, Web Development, Frontend Developer, Scalable Websites, User-Friendly Websites, React, JavaScript, Full Stack Development"
